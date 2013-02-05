@@ -28,3 +28,16 @@ A Restclient object is needed in order to communicate with the Fellowship One AP
 	var person = _restClient.PeopleRealm.People.Get(123);
 
 That's it. A person object will be populated on successful communication with the API. An error will be thrown if any issues happened during the request.
+
+## Run Tests ##
+In order to run the tests, create a file in FellowshipOne.API.Tests called credentials.config and add the following content, filling in the blanks.
+
+	<appSettings>
+  		<add key="Consumer.Key" value="" />
+  		<add key="Consumer.Secret" value="" />
+  		<add key="Church.Code" value="" />
+  		<add key="Username" value="" />
+  		<add key="Password" value="" />
+	</appSettings>
+
+Once the file exists, open the App.config file that resides in the FellowshipOne.API.Tests folder and change the appSettings file path to the absolute path of where the credentials.config file resides.
