@@ -87,6 +87,7 @@ csx
 
 # Windows Store app package directory
 AppPackages/
+Visual Studio 2010
 
 # Others
 [Bb]in
