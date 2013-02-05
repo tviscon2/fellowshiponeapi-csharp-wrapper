@@ -1,0 +1,12 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace FellowshipOne.API.Giving.Enum {
+    public enum BatchTypes {
+        Standard = 1,
+        CreditCard = 2,
+        RemoteDepositCapture = 3
+    }
+}
