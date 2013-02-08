@@ -10,15 +10,13 @@ using System.Xml.Serialization;
 namespace FellowshipOne.API.Giving.Model {
     [XmlRoot("rdcBatch")]
     public class RDCBatch : ApiModel {
-        public RDCBatch()
-        {
+        public RDCBatch() {
             this.ParentBatch = new ParentNamedObject();
             this.LastUpdatedByPerson = new ParentObject();
             this.CreatedByPerson = new ParentObject();
         }
         public RDCBatch(int? CreatedByPersonId, int? LastUpdatedByPersonId)
-            : this()
-        {
+            : this() {
             this.LastUpdatedByPerson.ID = LastUpdatedByPersonId;
             this.CreatedByPerson.ID = CreatedByPersonId;
         }
@@ -31,8 +29,9 @@ namespace FellowshipOne.API.Giving.Model {
         [XmlElement("name")]
         public string Name { get { return _name; } set { _name = value; } }
 
+        string _description = string.Empty;
         [XmlElement("description")]
-        public string BatchDescription { get; set; }
+        public string BatchDescription { get { return _description; } set { _description = value; } }
 
         [XmlElement("batchCreatedDate")]
         public DateTime BatchCreatedDate { get; set; }
@@ -46,8 +45,9 @@ namespace FellowshipOne.API.Giving.Model {
         [XmlElement("batchAmount")]
         public decimal BatchAmount { get; set; }
 
+        string _terminalNumber = string.Empty;
         [XmlElement("terminalNumber")]
-        public string TerminalNumber { get; set; }
+        public string TerminalNumber { get { return _terminalNumber; } set { _terminalNumber = value; } }
 
         [XmlElement("glPostDate")]
         public DateTime? GLPostDate { get; set; }
@@ -86,23 +86,18 @@ namespace FellowshipOne.API.Giving.Model {
 
 
         [XmlIgnore]
-        public int? ActivityInstanceID
-        {
-            get
-            {
+        public int? ActivityInstanceID {
+            get {
                 int id = int.MinValue;
 
-                if (int.TryParse(this.activityInstanceIDString, out id))
-                {
+                if (int.TryParse(this.activityInstanceIDString, out id)) {
                     return id;
                 }
 
                 return null;
             }
-            set
-            {
-                if (value.HasValue)
-                {
+            set {
+                if (value.HasValue) {
                     this.activityInstanceIDString = value.Value.ToString();
                 }
             }
@@ -110,34 +105,28 @@ namespace FellowshipOne.API.Giving.Model {
 
         private string _activityInstanceID = string.Empty;
         [XmlAttribute("activityInstanceID")]
-        public string activityInstanceIDString
-        {
+        public string activityInstanceIDString {
             get { return _activityInstanceID; }
             set { _activityInstanceID = value; }
         }
 
-       
+
 
 
 
         [XmlIgnore]
-        public int? LocationID
-        {
-            get
-            {
+        public int? LocationID {
+            get {
                 int id = int.MinValue;
 
-                if (int.TryParse(this.locationIDIDString, out id))
-                {
+                if (int.TryParse(this.locationIDIDString, out id)) {
                     return id;
                 }
 
                 return null;
             }
-            set
-            {
-                if (value.HasValue)
-                {
+            set {
+                if (value.HasValue) {
                     this.locationIDIDString = value.Value.ToString();
                 }
             }
@@ -145,8 +134,7 @@ namespace FellowshipOne.API.Giving.Model {
 
         private string _locationID = string.Empty;
         [XmlAttribute("locationID")]
-        public string locationIDIDString
-        {
+        public string locationIDIDString {
             get { return _locationID; }
             set { _locationID = value; }
         }
@@ -154,23 +142,18 @@ namespace FellowshipOne.API.Giving.Model {
 
 
         [XmlIgnore]
-        public int? PPMerchantAccountID
-        {
-            get
-            {
+        public int? PPMerchantAccountID {
+            get {
                 int id = int.MinValue;
 
-                if (int.TryParse(this.ppMerchantAccountIDString, out id))
-                {
+                if (int.TryParse(this.ppMerchantAccountIDString, out id)) {
                     return id;
                 }
 
                 return null;
             }
-            set
-            {
-                if (value.HasValue)
-                {
+            set {
+                if (value.HasValue) {
                     this.ppMerchantAccountIDString = value.Value.ToString();
                 }
             }
@@ -178,8 +161,7 @@ namespace FellowshipOne.API.Giving.Model {
 
         private string _ppMerchantAccountID = string.Empty;
         [XmlAttribute("ppMerchantAccountID")]
-        public string ppMerchantAccountIDString
-        {
+        public string ppMerchantAccountIDString {
             get { return _ppMerchantAccountID; }
             set { _ppMerchantAccountID = value; }
         }
@@ -187,7 +169,8 @@ namespace FellowshipOne.API.Giving.Model {
 
 
 
-        
+
         #endregion Properties
     }
 }
+

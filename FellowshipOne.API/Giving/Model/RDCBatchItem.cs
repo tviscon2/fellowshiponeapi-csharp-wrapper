@@ -118,28 +118,17 @@ namespace FellowshipOne.API.Giving.Model
             set { _ppMerchantAccountID = value; }
         }
 
-        //TODO RDCBatchItemDetails
-        //[XmlElement("rdcBatchItemDetails")]
-        //public List<RDCBatchItemDetail> RDCBatchItemDetails { get; set; }
+        //TODO: Implement. Not implemented, because not needed, yet. (First party resource anyway)
+        [XmlElement("rdcBatchItemDetails")]
+        public List<object> RDCBatchItemDetails { get; set; }
 
         [XmlAttribute("locationID")]
         public int? LocationID { get; set; }
 
-        #endregion Properties
-    }
+        [XmlIgnore]
+        public byte[] ReferenceImage { get; set; }
 
-    [Serializable]
-    [XmlRoot("results")]
-    public class RDCBatchItemCollection : List<RDCBatchItem>
-    {
-        public RDCBatchItemCollection() { }
-        public RDCBatchItemCollection(List<RDCBatchItem> rdcBatchItem)
-        {
-            if (rdcBatchItem != null)
-            {
-                this.AddRange(rdcBatchItem);
-            }
-        }
+        #endregion Properties
     }
 }
 
