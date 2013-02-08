@@ -16,7 +16,7 @@ namespace FellowshipOne.API.Giving.Model {
             this.LastUpdatedByPerson = new ParentObject();
             this.CreatedByPerson = new ParentObject();
         }
-        public RDCBatch(int CreatedByPersonId, int LastUpdatedByPersonId)
+        public RDCBatch(int? CreatedByPersonId, int? LastUpdatedByPersonId)
             : this()
         {
             this.LastUpdatedByPerson.ID = LastUpdatedByPersonId;
