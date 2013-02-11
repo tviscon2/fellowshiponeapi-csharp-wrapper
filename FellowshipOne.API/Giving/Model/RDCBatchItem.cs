@@ -125,8 +125,8 @@ namespace FellowshipOne.API.Giving.Model
         [XmlAttribute("locationID")]
         public int? LocationID { get; set; }
 
-        [XmlIgnore]
-        public byte[] ReferenceImage { get; set; }
+        //[XmlIgnore]
+        //public byte[] ReferenceImage { get; set; }
 
         #endregion Properties
     }
