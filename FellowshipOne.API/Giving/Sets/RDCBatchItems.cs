@@ -12,7 +12,7 @@ namespace FellowshipOne.API.Giving.Sets {
             : base(ticket, baseUrl) {
         }
 
-        private string _getUrl = "/giving/v1/batches/{0}/rdcbatches";
+        private string _getUrl = "/giving/v1/rdcbatcheitems/{0}";
         protected override string GetUrl {
             get {
                 return _getUrl;
@@ -31,7 +31,7 @@ namespace FellowshipOne.API.Giving.Sets {
             }
         }
 
-        private string _searchUrl = "/v1/Batches/Search";
+        private string _searchUrl = "/v1/rdcbatcheitems/Search";
         protected override string SearchUrl {
             get {
                 return _searchUrl;
@@ -41,13 +41,25 @@ namespace FellowshipOne.API.Giving.Sets {
             }
         }
 
+        private string _createUrl = "/giving/v1/rdcbatcheitems";
+        protected override string CreateUrl {
+            get { return this._createUrl; }
+            set { this._createUrl = value; }
+        }
+
         protected override string EditUrl {
             get {
-                return "/giving/v1/rdcbatches/{0}/Edit";
+                return "/giving/v1/rdcbatcheitems/{0}/Edit";
             }
             set {
                 base.EditUrl = value;
             }
         }
+
+        public override bool Create(byte[] stream) {
+            CreateUrl = "/giving/v1/rdcbatcheitems/{0}/referenceimages";
+            return base.Create(stream);
+            CreateUrl = "/giving/v1/rdcbatcheitems";
+        }        
     }
 }
