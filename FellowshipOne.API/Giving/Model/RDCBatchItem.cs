@@ -13,6 +13,18 @@ namespace FellowshipOne.API.Giving.Model
     [XmlRoot("rdcBatchItem")]
     public class RDCBatchItem : ApiModel
     {
+        public RDCBatchItem() {
+            Batch = new ParentNamedObject();
+            OriginalHousehold = new ParentObject();
+            OriginalIndividual = new ParentObject();
+            Household = new ParentObject();
+            Individual = new ParentObject();
+            ReferenceImage = new ParentObject();
+            CreatedByPerson = new ParentObject();
+            LastUpdatedByPerson = new ParentObject();
+            RDCBatchItemDetails = new List<object>(){new object()};
+        }
+
         #region Properties
 
         [XmlElement("batch")]
@@ -122,8 +134,30 @@ namespace FellowshipOne.API.Giving.Model
         [XmlElement("rdcBatchItemDetails")]
         public List<object> RDCBatchItemDetails { get; set; }
 
+        [XmlIgnore]
+        public int? LocationID {
+            get {
+                int id = int.MinValue;
+
+                if (int.TryParse(this.locationIDIDString, out id)) {
+                    return id;
+                }
+
+                return null;
+            }
+            set {
+                if (value.HasValue) {
+                    this.locationIDIDString = value.Value.ToString();
+                }
+            }
+        }
+
+        private string _locationID = string.Empty;
         [XmlAttribute("locationID")]
-        public int? LocationID { get; set; }
+        public string locationIDIDString {
+            get { return _locationID; }
+            set { _locationID = value; }
+        }
 
         //[XmlIgnore]
         //public byte[] ReferenceImage { get; set; }
