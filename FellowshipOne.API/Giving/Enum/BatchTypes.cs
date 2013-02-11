@@ -7,6 +7,7 @@ namespace FellowshipOne.API.Giving.Enum {
     public enum BatchTypes {
         Standard = 1,
         CreditCard = 2,
-        RemoteDepositCapture = 3
+        RemoteDepositCapture = 3,
+        ScannedContribution = 4
     }
 }

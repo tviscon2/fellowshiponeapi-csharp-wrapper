@@ -84,7 +84,6 @@ namespace FellowshipOne.API.Giving.Model {
         //    set;
         //}
 
-
         [XmlIgnore]
         public int? ActivityInstanceID {
             get {
