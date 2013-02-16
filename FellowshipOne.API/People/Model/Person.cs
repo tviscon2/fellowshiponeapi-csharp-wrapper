@@ -118,8 +118,37 @@ namespace FellowshipOne.API.People.Model {
         [XmlElement("gender")]
         public string Gender { get; set; }
 
+        private string _dateOfBirthString = string.Empty;
         [XmlElement("dateOfBirth")]
-        public DateTime? DateOfBirth { get; set; }
+        public string DateOfBirthString {
+            get { return _dateOfBirthString; }
+            set {
+                if (value != null) {
+                    _dateOfBirthString = value;
+                }
+            }
+        }
+
+        [XmlIgnore]
+        public DateTime? DateOfBirth {
+            get {
+                DateTime dateOfBirth = DateTime.MinValue;
+
+                if (DateTime.TryParse(_dateOfBirthString, out dateOfBirth)) {
+                    return dateOfBirth;
+                }
+
+                return null;
+            }
+            set {
+                if (value.HasValue) {
+                    _dateOfBirthString = value.Value.ToString();
+                }
+                else {
+                    _dateOfBirthString = string.Empty;
+                }
+            }
+        }
 
         [XmlElement("maritalStatus")]
         public string MaritalStatus { get; set; }
@@ -131,8 +160,16 @@ namespace FellowshipOne.API.People.Model {
             set { _householdMemberType = value; }
         }
 
+        private bool _isAuthorized = true;
         [XmlElement("isAuthorized")]
-        public bool? IsAuthorized { get; set; }
+        public bool IsAuthorized {
+            get {
+                return _isAuthorized;
+            }
+            set {
+                _isAuthorized = value;
+            }
+        }
 
         private Status _status = new Status();
         [XmlElement("status")]
@@ -184,23 +221,197 @@ namespace FellowshipOne.API.People.Model {
             set { _weblink = value; }
         }
 
+        [XmlIgnore]
+        public bool? Solicit {
+            get {
+                bool solicit = false;
+
+                if (bool.TryParse(_solicitString, out solicit)) {
+                    return solicit;
+                }
+
+                return null;
+            }
+            set {
+                if (value.HasValue) {
+                    this.SolicitString = value.Value.ToString();
+                }
+                else {
+                    this.SolicitString = string.Empty;
+                }
+            }
+        }
+
+        private string _solicitString = string.Empty;
         [XmlElement("solicit")]
-        public bool? Solicit { get; set; }
+        public string SolicitString {
+            get { return _solicitString; }
+            set {
+                if (value != null) {
+                    _solicitString = value;
+                }
+            }
+        }
 
+        [XmlIgnore]
+        public bool? Thank {
+            get {
+                bool thank = false;
+
+                if (bool.TryParse(_thankString, out thank)) {
+                    return thank;
+                }
+
+                return null;
+            }
+            set {
+                if (value.HasValue) {
+                    _thankString = value.Value.ToString();
+                }
+                else {
+                    _thankString = string.Empty;
+                }
+            }
+        }
+
+        private string _thankString = string.Empty;
         [XmlElement("thank")]
-        public bool? Thank { get; set; }
+        public string ThankString {
+            get { return _thankString; }
+            set {
+                if (value != null) {
+                    _thankString = value;
+                }
+            }
+        }
 
+        [XmlIgnore]
+        public DateTime? FirstRecord {
+            get {
+                DateTime firstRecord = DateTime.MinValue;
+
+                if (DateTime.TryParse(_firstRecordString, out firstRecord)) {
+                    return firstRecord;
+                }
+
+                return null;
+            }
+            set {
+                if (value.HasValue) {
+                    _firstRecordString = value.Value.ToString();
+                }
+                else {
+                    _firstRecordString = string.Empty;
+                }
+            }
+        }
+
+        private string _firstRecordString = string.Empty;
         [XmlElement("firstRecord")]
-        public DateTime? FirstRecord { get; set; }
+        public string FirstRecordString {
+            get { return _firstRecordString; }
+            set {
+                if (value != null) {
+                    _firstRecordString = value;
+                }
+            }
+        }
 
+        [XmlIgnore]
+        public DateTime? LastMatchDate {
+            get {
+                DateTime lastMatchDate = DateTime.MinValue;
+
+                if (DateTime.TryParse(_lastMatchDateString, out lastMatchDate)) {
+                    return lastMatchDate;
+                }
+
+                return null;
+            }
+            set {
+                if (value.HasValue) {
+                    _lastMatchDateString = value.Value.ToString();
+                }
+                else {
+                    _lastMatchDateString = string.Empty;
+                }
+            }
+        }
+
+        private string _lastMatchDateString = string.Empty;
         [XmlElement("lastMatchDate")]
-        public DateTime? LastMatchDate { get; set; }
+        public string LastMatchDateString {
+            get { return _lastMatchDateString; }
+            set {
+                if (value != null) {
+                    _lastMatchDateString = value;
+                }
+            }
+        }
 
+        [XmlIgnore]
+        public DateTime? CreatedDate {
+            get {
+                DateTime createdDate = DateTime.MinValue;
+
+                if (DateTime.TryParse(_createdDateString, out createdDate)) {
+                    return createdDate;
+                }
+
+                return null;
+            }
+            set {
+                if (value.HasValue) {
+                    _createdDateString = value.Value.ToString();
+                }
+                else {
+                    _createdDateString = string.Empty;
+                }
+            }
+        }
+
+        private string _createdDateString = string.Empty;
         [XmlElement("createdDate")]
-        public DateTime? CreatedDate { get; set; }
+        public string CreatedDateString {
+            get { return _createdDateString; }
+            set {
+                if (value != null) {
+                    _createdDateString = value;
+                }
+            }
+        }
 
+        [XmlIgnore]
+        public DateTime? LastUpdatedDate {
+            get {
+                DateTime lastUpdatedDate = DateTime.MinValue;
+
+                if (DateTime.TryParse(_lastUpdatedDateString, out lastUpdatedDate)) {
+                    return lastUpdatedDate;
+                }
+
+                return null;
+            }
+            set {
+                if (value.HasValue) {
+                    _lastUpdatedDateString = value.Value.ToString();
+                }
+                else {
+                    _lastUpdatedDateString = string.Empty;
+                }
+            }
+        }
+
+        private string _lastUpdatedDateString = string.Empty;
         [XmlElement("lastUpdatedDate")]
-        public DateTime? LastUpdatedDate { get; set; }
+        public string LastUpdatedDateString {
+            get { return _lastUpdatedDateString; }
+            set {
+                if (value != null) {
+                    _lastUpdatedDateString = value;
+                }
+            }
+        }
 
         [XmlElement("addresses")]
         public List<Address> Addresses { get; set; }

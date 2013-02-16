@@ -61,6 +61,21 @@ namespace FellowshipOne.API.People.Sets {
             this.CreateUrl = string.Format("/v1/People/{0}/Communications", personID);
             return this.Create(entity);
         }
+
+        public FellowshipOne.API.People.Model.Communication CreateForPerson(int personID, FellowshipOne.API.People.Model.Communication entity, out string requestXml) {
+            this.CreateUrl = string.Format("/v1/People/{0}/Communications", personID);
+            return this.Create(entity, out requestXml);
+        }
+
+        public FellowshipOne.API.People.Model.Communication CreateForHousehold(int householdID, FellowshipOne.API.People.Model.Communication entity) {
+            this.CreateUrl = string.Format("/v1/Households/{0}/Communications", householdID);
+            return this.Create(entity);
+        }
+
+        public FellowshipOne.API.People.Model.Communication CreateForHousehold(int householdID, FellowshipOne.API.People.Model.Communication entity, out string requestXml) {
+            this.CreateUrl = string.Format("/v1/Households/{0}/Communications", householdID);
+            return this.Create(entity, out requestXml);
+        }
         #endregion Overridden Methods
     }
 }
