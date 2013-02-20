@@ -1,8 +1,6 @@
 ﻿using MbUnit.Framework;
 using Shouldly;
 using FellowshipOne.API.People.QueryObject;
-using FellowshipOne.API.Tests;
-using FellowshipOne.API.People.QueryObject;
 
 namespace FellowshipOne.API.Tests.People {
     [TestFixture]
