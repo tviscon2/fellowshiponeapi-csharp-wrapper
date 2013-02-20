@@ -7,6 +7,7 @@ namespace FellowshipOne.API.Giving.Enum {
     public enum PaymentTypes {
         Check = 1,
         Cash = 2,
-        CreditCard = 3
+        CreditCard = 3,
+        Voucher = 4
     }
 }

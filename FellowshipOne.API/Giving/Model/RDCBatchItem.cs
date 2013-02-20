@@ -23,6 +23,7 @@ namespace FellowshipOne.API.Giving.Model
             CreatedByPerson = new ParentObject();
             LastUpdatedByPerson = new ParentObject();
             RDCBatchItemDetails = new List<object>(){new object()};
+            IsSharedAccount = false;
         }
 
         #region Properties
@@ -45,39 +46,49 @@ namespace FellowshipOne.API.Giving.Model
         [XmlElement("itemCreatedDate")]
         public DateTime? ItemCreatedDate { get; set; }
 
+        string _accountNumber = string.Empty;
         [XmlElement("accountNumber")]
-        public string AccountNumber { get; set; }
+        public string AccountNumber { get { return _accountNumber; } set { _accountNumber = value; } }
 
+        string _routingNumber = string.Empty;
         [XmlElement("routingNumber")]
-        public string RoutingNumber { get; set; }
+        public string RoutingNumber { get { return _routingNumber; } set { _routingNumber = value; } }
 
         [XmlElement("amount")]
         public decimal Amount { get; set; }
 
+        string _nameOnAccount = string.Empty;
         [XmlElement("nameOnAccount")]
-        public string NameOnAccount { get; set; }
-
+        public string NameOnAccount { get { return _nameOnAccount; } set { _nameOnAccount = value; } }
+        
+        string _itemDescription = string.Empty;
         [XmlElement("itemDescription")]
-        public string ItemDescription { get; set; }
+        public string ItemDescription { get { return _itemDescription; } set { _itemDescription = value; } }
 
+        string _customField1 = string.Empty;
         [XmlElement("customField1")]
-        public string customField1 { get; set; }
+        public string CustomField1 { get { return _customField1; } set { _customField1 = value; } }
 
+        string _customField2 = string.Empty;
         [XmlElement("customField2")]
-        public string customField2 { get; set; }
-
+        public string CustomField2 { get { return _customField2; } set { _customField2 = value; } }
+       
+        string _customField3 = string.Empty;
         [XmlElement("customField3")]
-        public string customField3 { get; set; }
+        public string CustomField3 { get { return _customField3; } set { _customField3 = value; } }
 
+        string _referenceNumber = string.Empty;
         [XmlElement("referenceNumber")]
-        public string ReferenceNumber { get; set; }
+        public string ReferenceNumber { get { return _referenceNumber; } set { _referenceNumber = value; } }
 
+        string _checkNumber = string.Empty;
         [XmlElement("checkNumber")]
-        public string CheckNumber { get; set; }
+        public string CheckNumber { get { return _checkNumber; } set { _checkNumber = value; } }
 
+        string _transactionNumber = string.Empty;
         [XmlElement("transactionNumber")]
-        public string TransactionNumber { get; set; }
-
+        public string TransactionNumber { get { return _transactionNumber; } set { _transactionNumber = value; } }
+        
         [XmlElement("referenceImage")]
         public ParentObject ReferenceImage { get; set; }
 
@@ -130,7 +141,6 @@ namespace FellowshipOne.API.Giving.Model
             set { _ppMerchantAccountID = value; }
         }
 
-        //TODO: Implement. Not implemented, because not needed, yet. (First party resource anyway)
         [XmlElement("rdcBatchItemDetails")]
         public List<object> RDCBatchItemDetails { get; set; }
 
@@ -158,10 +168,7 @@ namespace FellowshipOne.API.Giving.Model
             get { return _locationID; }
             set { _locationID = value; }
         }
-
-        //[XmlIgnore]
-        //public byte[] ReferenceImage { get; set; }
-
+               
         #endregion Properties
     }
 }

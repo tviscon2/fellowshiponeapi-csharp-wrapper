@@ -50,7 +50,7 @@ namespace FellowshipOne.API.Giving.Sets {
 
         protected override string EditUrl {
             get {
-                return "/giving/v1/rdcbatches/{0}/Edit";
+                return "/giving/v1/rdcbatches/{0}";
             }
             set {
                 base.EditUrl = value;
