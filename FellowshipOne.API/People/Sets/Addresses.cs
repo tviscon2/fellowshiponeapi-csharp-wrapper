@@ -61,9 +61,19 @@ namespace FellowshipOne.API.People.Sets {
             return this.Create(entity);
         }
 
+        public FellowshipOne.API.People.Model.Address CreateForPerson(int personID, FellowshipOne.API.People.Model.Address entity, out string requestXml) {
+            this.CreateUrl = string.Format("/v1/People/{0}/Addresses", personID);
+            return this.Create(entity, out requestXml);
+        }
+
         public FellowshipOne.API.People.Model.Address CreateForHousehold(int householdID, FellowshipOne.API.People.Model.Address entity) {
             this.CreateUrl = string.Format("/v1/Households/{0}/Addresses", householdID);
             return this.Create(entity);
+        }
+
+        public FellowshipOne.API.People.Model.Address CreateForHousehold(int householdID, FellowshipOne.API.People.Model.Address entity, out string requestXml) {
+            this.CreateUrl = string.Format("/v1/Households/{0}/Addresses", householdID);
+            return this.Create(entity, out requestXml);
         }
         #endregion Methods
     }
