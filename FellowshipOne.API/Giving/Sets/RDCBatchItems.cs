@@ -49,7 +49,7 @@ namespace FellowshipOne.API.Giving.Sets {
 
         protected override string EditUrl {
             get {
-                return "/giving/v1/rdcbatchitems/{0}/Edit";
+                return "/giving/v1/rdcbatchitems/{0}";
             }
             set {
                 base.EditUrl = value;
@@ -58,8 +58,9 @@ namespace FellowshipOne.API.Giving.Sets {
 
         public bool CreateReferenceImage(byte[] stream, int? RDCBatchItemId) {
             CreateUrl = string.Format("/giving/v1/rdcbatchitems/{0}/referenceimages", RDCBatchItemId);
-            return base.Create(stream);
-            CreateUrl = "/giving/v1/rdcbatcheitems";
+            var result = base.Create(stream);
+            CreateUrl = "/giving/v1/rdcbatchitems";
+            return result;
         }        
     }
 }
