@@ -93,6 +93,16 @@ namespace FellowshipOne.API.Realms {
             }
         }
 
+        private FellowshipOne.API.People.Sets.ChurchConfigs _churchConfigs;
+        public FellowshipOne.API.People.Sets.ChurchConfigs ChurchConfigs {
+            get {
+                if (_churchConfigs == null) {
+                    _churchConfigs = new API.People.Sets.ChurchConfigs(_ticket, _baseUrl);
+                }
+                return _churchConfigs;
+            }
+        }
+
         #endregion Properties
 
         #region Constructor
