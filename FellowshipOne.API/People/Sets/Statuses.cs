@@ -8,7 +8,7 @@ using Restify;
 
 namespace FellowshipOne.API.People.Sets {
     public class Statuses : ApiSet<FellowshipOne.API.People.Model.Status> {
-         #region Constructor
+        #region Constructor
         public Statuses(F1OAuthTicket ticket, string baseUrl) : base(ticket, baseUrl) { }
         #endregion Constructor
 

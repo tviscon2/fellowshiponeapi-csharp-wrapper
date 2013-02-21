@@ -11,25 +11,17 @@ namespace FellowshipOne.API.People.Model {
     [Serializable]
     [XmlRoot("status")]
     public class Status : ParentNamedObject {
-        private string _comment = string.Empty;
-        [XmlElement("comment")]
-        public string Comment {
-            get { return _comment; }
-            set { _comment = value; }
-        }
+        private List<SubStatus> _subStatuses = new List<SubStatus>();
 
-        private string _statusDate = string.Empty;
-        [XmlElement("date")]
-        public string StatusDate {
-            get { return _statusDate; }
-            set { _statusDate = value; }
+        [XmlArrayItem(ElementName="subStatus", Type=typeof(SubStatus))]
+        public List<SubStatus> SubStatuses {
+            get { return _subStatuses; }
+            set { _subStatuses = value; }
         }
+    }
 
-        private FellowshipOne.API.Model.ParentNamedObject _subStatus = new FellowshipOne.API.Model.ParentNamedObject();
-        [XmlElement("subStatus")]
-        public FellowshipOne.API.Model.ParentNamedObject SubStatus {
-            get { return _subStatus; }
-            set { _subStatus = value; }
-        }
+    [Serializable]
+    [XmlRoot("subStatus")]
+    public class SubStatus : ParentNamedObject {
     }
 }
