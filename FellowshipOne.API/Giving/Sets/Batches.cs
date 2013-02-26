@@ -56,5 +56,21 @@ namespace FellowshipOne.API.Giving.Sets {
                 base.EditUrl = value;
             }
         }
+                                                           
+        private string _autoMatch = "/giving/v1/batches/{0}/System_Automatch";
+        public string CreateAutoMatchURL {
+            get {
+                return _autoMatch;
+            }
+            set {
+                _autoMatch = value;
+            }
+        }
+        //http://demo.fellowshipone.com/giving/v1/batches/1234556/System_Automatch
+
+        public Model.Batch GetSystemAutoMatch(string id) {
+            var temp = base.GetByUrl(string.Format(CreateAutoMatchURL, id));
+            return temp;
+        }
     }
 }
