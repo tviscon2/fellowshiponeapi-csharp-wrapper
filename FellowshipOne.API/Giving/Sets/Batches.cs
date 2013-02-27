@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using FellowshipOne.API.Model;
 using Restify;
+using FellowshipOne.API.Giving.Model;
 
 namespace FellowshipOne.API.Giving.Sets {
     public class Batches : ApiSet<FellowshipOne.API.Giving.Model.Batch> {
@@ -68,9 +69,10 @@ namespace FellowshipOne.API.Giving.Sets {
         }
         //http://demo.fellowshipone.com/giving/v1/batches/1234556/System_Automatch
 
-        public Model.Batch GetSystemAutoMatch(string id) {
-            var temp = base.GetByUrl(string.Format(CreateAutoMatchURL, id));
-            return temp;
+        public void GetSystemAutoMatch(Batch batch, string id) {
+            GetUrl = String.Format("/giving/v1/batches/{0}/System_Automatch", id);
+            base.Get(id);
+            GetUrl = "/giving/v1/batches/{0}";
         }
     }
 }
