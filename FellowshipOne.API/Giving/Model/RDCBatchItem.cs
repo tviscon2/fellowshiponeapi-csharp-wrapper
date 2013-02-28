@@ -24,6 +24,7 @@ namespace FellowshipOne.API.Giving.Model
             LastUpdatedByPerson = new ParentObject();
             RDCBatchItemDetails = new List<object>(){new object()};
             IsSharedAccount = false;
+            Thank = false;
         }
 
         #region Properties
@@ -110,6 +111,19 @@ namespace FellowshipOne.API.Giving.Model
         [XmlElement("lastUpdatedByPerson")]
         public ParentObject LastUpdatedByPerson { get; set; }
 
+        [XmlElement("thank")]
+        public bool? Thank { get; set; }
+
+        [XmlElement("rdcBatchItemDetails")]
+        public List<object> RDCBatchItemDetails { get; set; }
+
+        private ContributionType _contributionType = new ContributionType();
+        [XmlElement("contributionType")]
+        public ContributionType ContributionType {
+            get { return _contributionType; }
+            set { _contributionType = value; }
+        }
+
         [XmlIgnore]
         public int? PPMerchantAccountID
         {
@@ -140,10 +154,7 @@ namespace FellowshipOne.API.Giving.Model
             get { return _ppMerchantAccountID; }
             set { _ppMerchantAccountID = value; }
         }
-
-        [XmlElement("rdcBatchItemDetails")]
-        public List<object> RDCBatchItemDetails { get; set; }
-
+       
         [XmlIgnore]
         public int? LocationID {
             get {
@@ -168,7 +179,7 @@ namespace FellowshipOne.API.Giving.Model
             get { return _locationID; }
             set { _locationID = value; }
         }
-               
+       
         #endregion Properties
     }
 }

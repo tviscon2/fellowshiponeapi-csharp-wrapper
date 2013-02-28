@@ -67,7 +67,6 @@ namespace FellowshipOne.API.Giving.Sets {
                 _autoMatch = value;
             }
         }
-        //http://demo.fellowshipone.com/giving/v1/batches/1234556/System_Automatch
 
         public void GetSystemAutoMatch(Batch batch, string id) {
             GetUrl = String.Format("/giving/v1/batches/{0}/System_Automatch", id);

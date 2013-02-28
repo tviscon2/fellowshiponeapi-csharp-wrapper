@@ -8,6 +8,8 @@ namespace FellowshipOne.API.Giving.Enum {
         Check = 1,
         Cash = 2,
         CreditCard = 3,
-        Voucher = 4
+        NonCash = 4,
+        ACH = 5,
+        Voucher = 6
     }
 }
