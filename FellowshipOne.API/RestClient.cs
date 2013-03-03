@@ -29,7 +29,8 @@ namespace FellowshipOne.API {
         #region Constructor
         public RestClient(F1OAuthTicket ticket, bool isStaging = false, bool useDemo = false)
             : base(ticket) {
-            var baseUrl = isStaging ? string.Format("https://{0}.staging.fellowshiponeapi.com/", ticket.ChurchCode) : string.Format("http://{0}.api.dev.corp.local/", ticket.ChurchCode);
+            var baseUrl = isStaging ? string.Format("https://{0}.staging.fellowshiponeapi.com/", ticket.ChurchCode) : string.Format("https://{0}.fellowshiponeapi.com/", ticket.ChurchCode);
+            
             SetProperties(ticket, useDemo, baseUrl);
         }
         public RestClient(F1OAuthTicket ticket, string baseUrl, bool isSecure = false, bool useDemo = false)

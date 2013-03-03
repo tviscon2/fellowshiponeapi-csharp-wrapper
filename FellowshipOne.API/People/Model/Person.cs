@@ -121,7 +121,17 @@ namespace FellowshipOne.API.People.Model {
         private string _dateOfBirthString = string.Empty;
         [XmlElement("dateOfBirth")]
         public string DateOfBirthString {
-            get { return _dateOfBirthString; }
+            get {
+                if (!string.IsNullOrEmpty(_dateOfBirthString)) {
+                    DateTime dt = DateTime.Now;
+
+                    if (DateTime.TryParse(_dateOfBirthString, out dt)) {
+                        _dateOfBirthString = dt.ToString("s");
+                    }
+                }
+
+                return _dateOfBirthString; 
+            }
             set {
                 if (value != null) {
                     _dateOfBirthString = value;
@@ -309,7 +319,17 @@ namespace FellowshipOne.API.People.Model {
         private string _firstRecordString = string.Empty;
         [XmlElement("firstRecord")]
         public string FirstRecordString {
-            get { return _firstRecordString; }
+            get {
+                if (!string.IsNullOrEmpty(_firstRecordString)) {
+                    DateTime dt = DateTime.Now;
+
+                    if (DateTime.TryParse(_firstRecordString, out dt)) {
+                        _firstRecordString = dt.ToString("s");
+                    }
+                }
+
+                return _firstRecordString; 
+            }
             set {
                 if (value != null) {
                     _firstRecordString = value;
@@ -341,7 +361,17 @@ namespace FellowshipOne.API.People.Model {
         private string _lastMatchDateString = string.Empty;
         [XmlElement("lastMatchDate")]
         public string LastMatchDateString {
-            get { return _lastMatchDateString; }
+            get {
+                if (!string.IsNullOrEmpty(_lastMatchDateString)) {
+                    DateTime dt = DateTime.Now;
+
+                    if (DateTime.TryParse(_lastMatchDateString, out dt)) {
+                        _lastMatchDateString = dt.ToString("s");
+                    }
+                }
+
+                return _lastMatchDateString; 
+            }
             set {
                 if (value != null) {
                     _lastMatchDateString = value;
@@ -373,7 +403,17 @@ namespace FellowshipOne.API.People.Model {
         private string _createdDateString = string.Empty;
         [XmlElement("createdDate")]
         public string CreatedDateString {
-            get { return _createdDateString; }
+            get {
+                if (!string.IsNullOrEmpty(_createdDateString)) {
+                    DateTime dt = DateTime.Now;
+
+                    if (DateTime.TryParse(_createdDateString, out dt)) {
+                        _createdDateString = dt.ToString("s");
+                    }
+                }
+
+                return _createdDateString; 
+            }
             set {
                 if (value != null) {
                     _createdDateString = value;
@@ -405,7 +445,17 @@ namespace FellowshipOne.API.People.Model {
         private string _lastUpdatedDateString = string.Empty;
         [XmlElement("lastUpdatedDate")]
         public string LastUpdatedDateString {
-            get { return _lastUpdatedDateString; }
+            get {
+                if (!string.IsNullOrEmpty(_lastUpdatedDateString)) {
+                    DateTime dt = DateTime.Now;
+
+                    if (DateTime.TryParse(_lastUpdatedDateString, out dt)) {
+                        _lastUpdatedDateString = dt.ToString("s");
+                    }
+                }
+
+                return _lastUpdatedDateString; 
+            }
             set {
                 if (value != null) {
                     _lastUpdatedDateString = value;
