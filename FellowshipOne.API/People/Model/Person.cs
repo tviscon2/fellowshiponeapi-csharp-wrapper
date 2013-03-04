@@ -255,7 +255,7 @@ namespace FellowshipOne.API.People.Model {
         private string _solicitString = string.Empty;
         [XmlElement("solicit")]
         public string SolicitString {
-            get { return _solicitString; }
+            get { return _solicitString.ToLower(); }
             set {
                 if (value != null) {
                     _solicitString = value;
@@ -287,7 +287,7 @@ namespace FellowshipOne.API.People.Model {
         private string _thankString = string.Empty;
         [XmlElement("thank")]
         public string ThankString {
-            get { return _thankString; }
+            get { return _thankString.ToLower(); }
             set {
                 if (value != null) {
                     _thankString = value;

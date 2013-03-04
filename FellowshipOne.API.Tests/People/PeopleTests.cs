@@ -39,5 +39,20 @@ namespace FellowshipOne.API.Tests.People {
             requestXml.ShouldNotBeEmpty();
 
         }
+
+        [Test]
+        public void people_update_get_xml_does_save() {
+            var qo = new PeopleQO();
+            qo.Name = "chad meyer";
+            qo.RecordsPerPage = 5;
+
+            var people = Client.PeopleRealm.People.Search<FellowshipOne.API.People.Model.PersonCollection>(qo);
+            var person = people[0];
+            person.Status.SubStatuses = null;
+            person.Addresses = null;
+            person.Communications = null;
+
+            Client.PeopleRealm.People.Update(person, person.ID.ToString());
+        }
     }
 }
