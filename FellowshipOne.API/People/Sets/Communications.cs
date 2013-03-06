@@ -16,15 +16,11 @@ namespace FellowshipOne.API.People.Sets {
         private string _getUrl = "/v1/Communications/{0}";
         protected override string GetUrl {
             get { return _getUrl; }
-            set { _getUrl = value; }
         }
 
         protected override string GetChildUrl {
             get {
                 return "/v1/People/{0}/Communications{1}";
-            }
-            set {
-                base.GetChildUrl = value;
             }
         }
 
@@ -38,21 +34,16 @@ namespace FellowshipOne.API.People.Sets {
             get {
                 return "/v1/People/{0}/Communications";
             }
-            set {
-                base.GetChildListUrl = value;
-            }
         }
 
         private string _createUrl = "/v1/Communications";
         protected override string CreateUrl {
             get { return _createUrl; }
-            set { _createUrl = value; }
         }
 
         private string _editUrl = "/v1/Communications/{0}";
         protected override string EditUrl {
             get { return _editUrl; }
-            set { _editUrl = value; }
         }
         #endregion Properties
 

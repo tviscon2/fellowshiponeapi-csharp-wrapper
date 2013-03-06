@@ -8,53 +8,36 @@ using Restify;
 
 namespace FellowshipOne.API.Giving.Sets {
     public class RDCBatches : ApiSet<FellowshipOne.API.Giving.Model.RDCBatch> {
+        #region Constants
+        private const string GET_URL = "/giving/v1/rdcbatches/{0}";
+        private const string SEARCH_URL = "/v1/Batches/Search";
+        private const string CREATE_URL = "/giving/v1/rdcbatches";
+        private const string EDIT_URL = "/giving/v1/rdcbatches/{0}";
+        #endregion Constants
+
+        #region Constructor
         public RDCBatches(F1OAuthTicket ticket, string baseUrl)
             : base(ticket, baseUrl) {
         }
+        #endregion Constructor
 
-        private string _getUrl = "/giving/v1/rdcbatches/{0}";
+        #region Overridden Properties
         protected override string GetUrl {
-            get {
-                return _getUrl;
-            }
-            set {
-                _getUrl = value;
-            }
+            get { return GET_URL; }
         }
 
-        protected override string ListUrl {
-            get {
-                throw new NotImplementedException();
-            }
-            set {
-                throw new NotImplementedException();
-            }
-        }
-
-        private string _searchUrl = "/v1/Batches/Search";
         protected override string SearchUrl {
-            get {
-                return _searchUrl;
-            }
-            set {
-                _searchUrl = value;
-            }
+            get { return SEARCH_URL; }
         }
 
-        private string _createUrl = "/giving/v1/rdcbatches";
-        protected override string CreateUrl
-        {
-            get { return this._createUrl; }
-            set { this._createUrl = value; }
+        protected override string CreateUrl {
+            get { return CREATE_URL; }
         }
 
         protected override string EditUrl {
-            get {
-                return "/giving/v1/rdcbatches/{0}";
-            }
-            set {
-                base.EditUrl = value;
-            }
+            get { return EDIT_URL; }
         }
+
+        #endregion Overridden Properties
     }
 }

@@ -43,8 +43,9 @@
     <Reference Include="MbUnit">
       <HintPath>..\packages\mbunit.3.3.454.0\lib\net40\MbUnit.dll</HintPath>
     </Reference>
-    <Reference Include="Restify">
-      <HintPath>..\packages\Restify.1.0.6\lib\net40\Restify.dll</HintPath>
+    <Reference Include="Restify, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Restify.1.0.7\lib\net40\Restify.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\..\contribution-app\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
