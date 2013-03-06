@@ -1,65 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FellowshipOne.API.Model;
-using Restify;
+﻿using Restify;
 
 namespace FellowshipOne.API.Giving.Sets {
-    public class RDCBatchItems : ApiSet<FellowshipOne.API.Giving.Model.RDCBatchItem> {
-        public RDCBatchItems(F1OAuthTicket ticket, string baseUrl)
+    public class RDCBatchItems : ApiSet<Model.RDCBatchItem> {
+        private readonly string _baseUrl = string.Empty;
+        private const string GET_URL = "/giving/v1/rdcbatchitems/{0}";
+        private const string SEARCH_URL = "/v1/rdcbatchitems/search";
+        private const string CREATE_URL = "/giving/v1/rdcbatchitems";
+        private const string EDIT_URL = "/giving/v1/rdcbatchitems/{0}";
+        private const string CREATE_REFERENCE_IMAGE_URL = "/giving/v1/rdcbatchitems/{0}/referenceimages";
+
+        public RDCBatchItems(OAuthTicket ticket, string baseUrl)
             : base(ticket, baseUrl) {
+            _baseUrl = baseUrl;
         }
 
-        private string _getUrl = "/giving/v1/rdcbatchitems/{0}";
-        protected override string GetUrl {
-            get {
-                return _getUrl;
-            }
-            set {
-                _getUrl = value;
-            }
-        }
+        protected override string GetUrl { get { return GET_URL; } }
+        protected override string SearchUrl { get { return SEARCH_URL; } }
+        protected override string CreateUrl { get { return CREATE_URL; } }
+        protected override string EditUrl { get { return EDIT_URL; } }
 
-        protected override string ListUrl {
-            get {
-                throw new NotImplementedException();
-            }
-            set {
-                throw new NotImplementedException();
-            }
-        }
-
-        private string _searchUrl = "/v1/rdcbatchitems/Search";
-        protected override string SearchUrl {
-            get {
-                return _searchUrl;
-            }
-            set {
-                _searchUrl = value;
-            }
-        }
-
-        private string _createUrl = "/giving/v1/rdcbatchitems";
-        protected override string CreateUrl {
-            get { return this._createUrl; }
-            set { this._createUrl = value; }
-        }
-
-        protected override string EditUrl {
-            get {
-                return "/giving/v1/rdcbatchitems/{0}";
-            }
-            set {
-                base.EditUrl = value;
-            }
-        }
-
-        public bool CreateReferenceImage(byte[] stream, int? RDCBatchItemId) {
-            CreateUrl = string.Format("/giving/v1/rdcbatchitems/{0}/referenceimages", RDCBatchItemId);
-            var result = base.Create(stream);
-            CreateUrl = "/giving/v1/rdcbatchitems";
+        public bool CreateReferenceImage(byte[] stream, int? rdcBatchItemID) {
+            var url = string.Format(_baseUrl + CREATE_REFERENCE_IMAGE_URL, rdcBatchItemID);
+            var result = base.Create(stream, url);
             return result;
         }        
     }
