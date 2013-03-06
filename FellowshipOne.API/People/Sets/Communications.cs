@@ -7,6 +7,8 @@ namespace FellowshipOne.API.People.Sets {
         private const string CHILD_LIST_URL = "/v1/people/{0}/communications";
         private const string CREATE_URL = "/v1/communications";
         private const string EDIT_URL = "/v1/communications/{0}";
+        private const string CREATE_INDIVIDUAL_COMMUNICATION_URL = "/v1/people/{0}/communications";
+        private const string CREATE_HOUSEHOLD_COMMUNICATION_URL = "/v1/households/{0}/communications";
 
         public Communications(OAuthTicket ticket, string baseUrl) : base(ticket, baseUrl) { }
 
@@ -17,22 +19,22 @@ namespace FellowshipOne.API.People.Sets {
         protected override string EditUrl { get { return EDIT_URL; } }
 
         public Model.Communication CreateForPerson(int personID, Model.Communication entity) {
-            var url = string.Format("/v1/People/{0}/Communications", personID);
+            var url = string.Format(CREATE_INDIVIDUAL_COMMUNICATION_URL, personID);
             return Create(entity, url);
         }
 
         public Model.Communication CreateForPerson(int personID, Model.Communication entity, out string requestXml) {
-            var url = string.Format("/v1/People/{0}/Communications", personID);
+            var url = string.Format(CREATE_INDIVIDUAL_COMMUNICATION_URL, personID);
             return Create(entity, out requestXml, url);
         }
 
         public Model.Communication CreateForHousehold(int householdID, Model.Communication entity) {
-            var url = string.Format("/v1/Households/{0}/Communications", householdID);
+            var url = string.Format(CREATE_HOUSEHOLD_COMMUNICATION_URL, householdID);
             return Create(entity, url);
         }
 
         public Model.Communication CreateForHousehold(int householdID, Model.Communication entity, out string requestXml) {
-            var url = string.Format("/v1/Households/{0}/Communications", householdID);
+            var url = string.Format(CREATE_HOUSEHOLD_COMMUNICATION_URL, householdID);
             return Create(entity, out requestXml, url);
         }
     }

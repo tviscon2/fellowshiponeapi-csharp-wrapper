@@ -7,6 +7,8 @@ namespace FellowshipOne.API.People.Sets {
         private const string CHILD_LIST_URL = "/v1/people/{0}/addresses";
         private const string CREATE_URL = "/v1/addresses";
         private const string EDIT_URL = "/v1/addresses/{0}";
+        private const string CREATE_INDIVIDUAL_ADDRESS_URL = "/v1/people/{0}/addresses";
+        private const string CREATE_HOUSEHOLD_ADDRESS_URL = "/v1/households/{0}/addresses";
 
         public Addresses(OAuthTicket ticket, string baseUrl) : base(ticket, baseUrl) { }
 
@@ -17,22 +19,22 @@ namespace FellowshipOne.API.People.Sets {
         protected override string EditUrl { get { return EDIT_URL; } }
         
         public Model.Address CreateForPerson(int personID, Model.Address entity) {
-            var url = string.Format("/v1/People/{0}/Addresses", personID);
+            var url = string.Format(CREATE_INDIVIDUAL_ADDRESS_URL, personID);
             return Create(entity, url);
         }
 
         public Model.Address CreateForPerson(int personID, Model.Address entity, out string requestXml) {
-            var url = string.Format("/v1/People/{0}/Addresses", personID);
+            var url = string.Format(CREATE_INDIVIDUAL_ADDRESS_URL, personID);
             return Create(entity, out requestXml, url);
         }
 
         public Model.Address CreateForHousehold(int householdID, Model.Address entity) {
-            var url = string.Format("/v1/Households/{0}/Addresses", householdID);
+            var url = string.Format(CREATE_HOUSEHOLD_ADDRESS_URL, householdID);
             return Create(entity, url);
         }
 
         public Model.Address CreateForHousehold(int householdID, Model.Address entity, out string requestXml) {
-            var url = string.Format("/v1/Households/{0}/Addresses", householdID);
+            var url = string.Format(CREATE_HOUSEHOLD_ADDRESS_URL, householdID);
             return Create(entity, out requestXml, url);
         }
     }
