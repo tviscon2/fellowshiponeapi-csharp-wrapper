@@ -21,8 +21,8 @@ namespace FellowshipOne.API.Giving.Sets {
 
         public bool CreateReferenceImage(byte[] stream, int? rdcBatchItemID) {
             var url = string.Format(_baseUrl + CREATE_REFERENCE_IMAGE_URL, rdcBatchItemID);
-            var result = base.Create(stream, url);
+            var result = base.Create(stream, url: url);
             return result;
-        }        
+        }
     }
 }

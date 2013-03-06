@@ -1,60 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FellowshipOne.API.Model;
-using Restify;
+﻿using Restify;
 
 namespace FellowshipOne.API.People.Sets {
-    public class People : ApiSet<FellowshipOne.API.People.Model.Person> {
+    public class People : ApiSet<Model.Person> {
+        private const string GET_URL = "/v1/people/{0}";
+        private const string SEARCH_URL = "/v1/people/search";
+        private const string CHILD_LIST_URL = "/v1/households/{0}/people";
+        private const string CREATE_URL = "/v1/people";
+        private const string EDIT_URL = "/v1/people/{0}";
 
-        #region Constructor
-        public People(F1OAuthTicket ticket, string baseUrl) : base(ticket, baseUrl) { }
-        #endregion Constructor
+        public People(OAuthTicket ticket, string baseUrl) : base(ticket, baseUrl) { }
 
-        #region Properties
-        protected override string GetUrl {
-            get {
-                return "/v1/People/{0}";
-            }
-        }
-
-        protected override string GetChildUrl {
-            get {
-                return base.GetChildUrl;
-            }
-            set {
-                base.GetChildUrl = value;
-            }
-        }
-
-        protected override string CreateUrl {
-            get { return "/v1/People"; }
-        }
-
-        protected override string EditUrl {
-            get { return "/v1/People/{0}"; }
-        }
-
-        protected override string SearchUrl {
-            get {
-                return "/v1/People/Search";
-            }
-            set {
-                base.SearchUrl = value;
-            }
-        }
-
-        private string _childListUrl = "/v1/Households/{0}/People";
-        protected override string GetChildListUrl {
-            get {
-                return _childListUrl;
-            }
-            set {
-                _childListUrl = value;
-            }
-        }
-        #endregion Properties
+        protected override string GetUrl { get { return GET_URL; } }
+        protected override string SearchUrl { get { return SEARCH_URL; } }
+        protected override string GetChildListUrl { get { return CHILD_LIST_URL; } }
+        protected override string CreateUrl { get { return CREATE_URL; } }
+        protected override string EditUrl { get { return EDIT_URL; } }
     }
 }

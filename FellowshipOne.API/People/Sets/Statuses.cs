@@ -1,48 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FellowshipOne.API.Model;
-using Restify;
+﻿using Restify;
 
 namespace FellowshipOne.API.People.Sets {
-    public class Statuses : ApiSet<FellowshipOne.API.People.Model.Status> {
-        #region Constructor
-        public Statuses(F1OAuthTicket ticket, string baseUrl) : base(ticket, baseUrl) { }
-        #endregion Constructor
+    public class Statuses : ApiSet<Model.Status> {
+        private const string GET_URL = "/v1/people/statuses/{0}";
+        private const string LIST_URL = "/v1/people/statuses";
 
-        #region Properties
-        protected override string GetUrl {
-            get {
-                return "/v1/People/Statuses/{0}";
-            }
-        }
+        public Statuses(OAuthTicket ticket, string baseUrl) : base(ticket, baseUrl) { }
 
-        private string _listUrl = "/v1/People/Statuses";
-        protected override string ListUrl {
-            get {
-                return _listUrl;
-            }
-            set {
-                _listUrl = value;
-            }
-        }
-
-        protected override string CreateUrl {
-            get { throw new NotImplementedException(); }
-        }
-
-        protected override string EditUrl {
-            get { throw new NotImplementedException(); }
-        }
-
-        #endregion Properties
-
-        #region Overridden Methods
-        public override Model.Status Get(string parentID, string id) {
-            throw new NotImplementedException(); 
-        }
-        #endregion Overriden Methods
+        protected override string GetUrl { get { return GET_URL; } }
+        protected override string ListUrl { get { return LIST_URL; } }
     }
 }

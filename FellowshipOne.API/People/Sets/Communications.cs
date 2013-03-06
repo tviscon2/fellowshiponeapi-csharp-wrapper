@@ -1,72 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Restify;
+﻿using Restify;
 
 namespace FellowshipOne.API.People.Sets {
-    public class Communications : ApiSet<FellowshipOne.API.People.Model.Communication> {
+    public class Communications : ApiSet<Model.Communication> {
+        private const string GET_URL = "/v1/communications/{0}";
+        private const string GET_CHILD_URL = "/v1/people/{0}/communications/{1}";
+        private const string CHILD_LIST_URL = "/v1/people/{0}/communications";
+        private const string CREATE_URL = "/v1/communications";
+        private const string EDIT_URL = "/v1/communications/{0}";
 
-        #region Constructor
-        public Communications(F1OAuthTicket ticket, string baseUrl) : base(ticket, baseUrl) { }
-        #endregion Constructor
+        public Communications(OAuthTicket ticket, string baseUrl) : base(ticket, baseUrl) { }
 
-        #region Properties
-        private string _getUrl = "/v1/Communications/{0}";
-        protected override string GetUrl {
-            get { return _getUrl; }
+        protected override string GetUrl { get { return GET_URL; } }
+        protected override string GetChildUrl { get { return GET_CHILD_URL; } }
+        protected override string GetChildListUrl { get { return CHILD_LIST_URL; } }
+        protected override string CreateUrl { get { return CREATE_URL; } }
+        protected override string EditUrl { get { return EDIT_URL; } }
+
+        public Model.Communication CreateForPerson(int personID, Model.Communication entity) {
+            var url = string.Format("/v1/People/{0}/Communications", personID);
+            return Create(entity, url: url);
         }
 
-        protected override string GetChildUrl {
-            get {
-                return "/v1/People/{0}/Communications{1}";
-            }
+        public Model.Communication CreateForPerson(int personID, Model.Communication entity, out string requestXml) {
+            var url = string.Format("/v1/People/{0}/Communications", personID);
+            return Create(entity, out requestXml, url: url);
         }
 
-        protected override string ListUrl {
-            get {
-                throw new NotImplementedException();
-            }
+        public Model.Communication CreateForHousehold(int householdID, Model.Communication entity) {
+            var url = string.Format("/v1/Households/{0}/Communications", householdID);
+            return Create(entity, url: url);
         }
 
-        protected override string GetChildListUrl {
-            get {
-                return "/v1/People/{0}/Communications";
-            }
+        public Model.Communication CreateForHousehold(int householdID, Model.Communication entity, out string requestXml) {
+            var url = string.Format("/v1/Households/{0}/Communications", householdID);
+            return Create(entity, out requestXml, url: url);
         }
-
-        private string _createUrl = "/v1/Communications";
-        protected override string CreateUrl {
-            get { return _createUrl; }
-        }
-
-        private string _editUrl = "/v1/Communications/{0}";
-        protected override string EditUrl {
-            get { return _editUrl; }
-        }
-        #endregion Properties
-
-        #region Overridden Methods
-        public FellowshipOne.API.People.Model.Communication CreateForPerson(int personID, FellowshipOne.API.People.Model.Communication entity) {
-            this.CreateUrl = string.Format("/v1/People/{0}/Communications", personID);
-            return this.Create(entity);
-        }
-
-        public FellowshipOne.API.People.Model.Communication CreateForPerson(int personID, FellowshipOne.API.People.Model.Communication entity, out string requestXml) {
-            this.CreateUrl = string.Format("/v1/People/{0}/Communications", personID);
-            return this.Create(entity, out requestXml);
-        }
-
-        public FellowshipOne.API.People.Model.Communication CreateForHousehold(int householdID, FellowshipOne.API.People.Model.Communication entity) {
-            this.CreateUrl = string.Format("/v1/Households/{0}/Communications", householdID);
-            return this.Create(entity);
-        }
-
-        public FellowshipOne.API.People.Model.Communication CreateForHousehold(int householdID, FellowshipOne.API.People.Model.Communication entity, out string requestXml) {
-            this.CreateUrl = string.Format("/v1/Households/{0}/Communications", householdID);
-            return this.Create(entity, out requestXml);
-        }
-        #endregion Overridden Methods
     }
 }
