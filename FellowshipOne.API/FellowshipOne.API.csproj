@@ -35,7 +35,7 @@
   <ItemGroup>
     <Reference Include="Restify, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Restify.1.0.10\lib\net40\Restify.dll</HintPath>
+      <HintPath>..\packages\Restify.1.0.11\lib\net40\Restify.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\..\contribution-app\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
