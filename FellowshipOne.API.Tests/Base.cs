@@ -11,13 +11,13 @@ namespace FellowshipOne.API.Tests {
 
         [FixtureSetUp]
         public void Setup() {
-            Ticket = FellowshipOne.API.RestClient.Authorize(new F1OAuthTicket {
-                ConsumerKey = ConfigurationManager.AppSettings["Consumer.Key"],
-                ConsumerSecret = ConfigurationManager.AppSettings["Consumer.Secret"],
-                ChurchCode = ConfigurationManager.AppSettings["Church.Code"]
-            }, ConfigurationManager.AppSettings["Username"], ConfigurationManager.AppSettings["Password"], LoginType.PortalUser, true);
+            //Ticket = FellowshipOne.API.RestClient.Authorize(new F1OAuthTicket {
+            //    ConsumerKey = ConfigurationManager.AppSettings["Consumer.Key"],
+            //    ConsumerSecret = ConfigurationManager.AppSettings["Consumer.Secret"],
+            //    ChurchCode = ConfigurationManager.AppSettings["Church.Code"]
+            //}, ConfigurationManager.AppSettings["Username"], ConfigurationManager.AppSettings["Password"], LoginType.PortalUser, true);
 
-            Client = new RestClient(Ticket, true);
+            //Client = new RestClient(Ticket, false);
         }
 
         [FixtureTearDown]

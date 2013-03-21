@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{83531A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FellowshipOne.API.Tests", "FellowshipOne.API.Tests\FellowshipOne.API.Tests.csproj", "{52ED5E40-4202-446B-AC54-0D5C8C3E7CD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restify", "..\restify\Restify\Restify.csproj", "{1F97B86F-D2E6-43F4-9595-D01859A357D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,10 @@ Global
 		{52ED5E40-4202-446B-AC54-0D5C8C3E7CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52ED5E40-4202-446B-AC54-0D5C8C3E7CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52ED5E40-4202-446B-AC54-0D5C8C3E7CD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F97B86F-D2E6-43F4-9595-D01859A357D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F97B86F-D2E6-43F4-9595-D01859A357D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F97B86F-D2E6-43F4-9595-D01859A357D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F97B86F-D2E6-43F4-9595-D01859A357D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

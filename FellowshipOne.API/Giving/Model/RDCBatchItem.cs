@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FellowshipOne.API.Model;
-using System.Xml;
 using System.Xml.Serialization;
-using System.Collections.ObjectModel;
+using FellowshipOne.API.Model;
 
 namespace FellowshipOne.API.Giving.Model
 {
@@ -22,7 +17,7 @@ namespace FellowshipOne.API.Giving.Model
             ReferenceImage = new ParentObject();
             CreatedByPerson = new ParentObject();
             LastUpdatedByPerson = new ParentObject();
-            RDCBatchItemDetails = new List<object>(){new object()};
+            RDCBatchItemDetails = new List<RDCBatchItemDetail>();
             IsSharedAccount = false;
             Thank = false;
         }
@@ -115,7 +110,7 @@ namespace FellowshipOne.API.Giving.Model
         public bool? Thank { get; set; }
 
         [XmlElement("rdcBatchItemDetails")]
-        public List<object> RDCBatchItemDetails { get; set; }
+        public List<RDCBatchItemDetail> RDCBatchItemDetails { get; set; }
 
         private ContributionType _contributionType = new ContributionType();
         [XmlElement("contributionType")]
@@ -181,6 +176,17 @@ namespace FellowshipOne.API.Giving.Model
         }
        
         #endregion Properties
+    }
+    
+    [Serializable]
+    [XmlRoot("rdcBatchItems")]
+    public class RDCBatchItemCollection : List<RDCBatchItem> {
+        public RDCBatchItemCollection() { }
+        public RDCBatchItemCollection(List<RDCBatchItem> rdcBatchItems) {
+            if (rdcBatchItems != null) {
+                AddRange(rdcBatchItems);
+            }
+        }
     }
 }
 
