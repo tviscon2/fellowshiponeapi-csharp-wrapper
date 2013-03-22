@@ -43,13 +43,6 @@
     <Reference Include="MbUnit">
       <HintPath>..\packages\mbunit.3.3.454.0\lib\net40\MbUnit.dll</HintPath>
     </Reference>
-    <Reference Include="Restify, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Restify.1.0.11\lib\net40\Restify.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp">
-      <HintPath>..\..\contribution-app\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
-    </Reference>
     <Reference Include="Shouldly">
       <HintPath>..\..\shared\Assemblies\packages\Shouldly.1.1.1.1\lib\35\Shouldly.dll</HintPath>
     </Reference>
@@ -79,6 +72,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\restify\Restify\Restify.csproj">
+      <Project>{1f97b86f-d2e6-43f4-9595-d01859a357d7}</Project>
+      <Name>Restify</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FellowshipOne.API\FellowshipOne.API.csproj">
       <Project>{0a69fa42-afdd-4867-a3bb-6260fd3355ba}</Project>
       <Name>FellowshipOne.API</Name>

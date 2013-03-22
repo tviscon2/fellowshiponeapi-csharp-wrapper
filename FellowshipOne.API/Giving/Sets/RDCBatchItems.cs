@@ -35,9 +35,9 @@ namespace FellowshipOne.API.Giving.Sets {
  	         
         //}
 
-        
 
-        public RDCBatchItemCollection GetListByBatchId(int batchID) {
+
+        public List<RDCBatchItem> GetListByBatchId(int batchID) {
             if (string.IsNullOrWhiteSpace(SearchUrl)) {
                 throw new NotImplementedException("The property SearchUrl has no value on the ApiSet.");
             }
@@ -46,7 +46,7 @@ namespace FellowshipOne.API.Giving.Sets {
                 Resource = string.Format(GetChildListUrl, batchID)
             };
 
-            var list = ExecuteCustomRequest<RDCBatchItemCollection>(request);
+            var list = ExecuteCustomRequest<List<RDCBatchItem>>(request);
             return list.Data;
         }
     }

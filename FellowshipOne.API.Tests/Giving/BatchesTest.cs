@@ -1,9 +1,12 @@
-﻿using MbUnit.Framework;
+﻿using FellowshipOne.API.Giving.Model;
+using FellowshipOne.API.Model;
+using MbUnit.Framework;
 using Restify;
 using Shouldly;
 using FellowshipOne.API.People.QueryObject;
 using System.Configuration;
 using System.Collections.Generic;
+using System;
 
 namespace FellowshipOne.API.Tests.Giving {
     

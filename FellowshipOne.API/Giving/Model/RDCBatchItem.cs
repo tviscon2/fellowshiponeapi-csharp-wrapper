@@ -5,7 +5,9 @@ using FellowshipOne.API.Model;
 
 namespace FellowshipOne.API.Giving.Model
 {
+    [Serializable]
     [XmlRoot("rdcBatchItem")]
+    [XmlType("rdcBatchItem")]
     public class RDCBatchItem : ApiModel
     {
         public RDCBatchItem() {
@@ -85,11 +87,8 @@ namespace FellowshipOne.API.Giving.Model
         [XmlElement("transactionNumber")]
         public string TransactionNumber { get { return _transactionNumber; } set { _transactionNumber = value; } }
         
-        [XmlElement("referenceImage")]
-        public ParentObject ReferenceImage { get; set; }
-
         [XmlElement("returnDate")]
-        public DateTime? ReturnDate { get; set; }
+        public string ReturnDate { get; set; }
 
         [XmlElement("isSharedAccount")]
         public bool? IsSharedAccount { get; set; }
@@ -117,6 +116,34 @@ namespace FellowshipOne.API.Giving.Model
         public ContributionType ContributionType {
             get { return _contributionType; }
             set { _contributionType = value; }
+        }
+
+        [XmlElement("referenceImage")]
+        public ParentObject ReferenceImage { get; set; }
+
+        [XmlIgnore]
+        public int? ReferenceImageID {
+            get {
+                int id = int.MinValue;
+
+                if (int.TryParse(this.ppMerchantAccountIDString, out id)) {
+                    return id;
+                }
+
+                return null;
+            }
+            set {
+                if (value.HasValue) {
+                    this.ppMerchantAccountIDString = value.Value.ToString();
+                }
+            }
+        }
+
+        private string _referenceImageID = string.Empty;
+        [XmlAttribute("referenceImageID")]
+        public string ReferenceImageIDString {
+            get { return _referenceImageID; }
+            set { _referenceImageID = value; }
         }
 
         [XmlIgnore]
