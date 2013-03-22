@@ -50,8 +50,15 @@ namespace FellowshipOne.API.Tests.Giving {
 
         [Test]
         public void GetRdcBatchItemsByBatchID() {
-            var rdcBatchItems = _client.GivingRealm.RDCBatchItems.GetListByBatchId(1518980);
-            rdcBatchItems.Count.ShouldBe(2);
+            var batchQO = new API.Giving.QueryObject.BatchQO() {
+                BatchStatusID = "6",
+                BatchTypeID = "4"
+            };
+
+            var batches = _client.GivingRealm.Batches.Search<List<API.Giving.Model.Batch>>(batchQO);
+
+            var rdcBatchItems = _client.GivingRealm.RDCBatchItems.GetListByBatchId(batches[0].ID.GetValueOrDefault());
+            rdcBatchItems.Count.ShouldBeGreaterThan(0);
         }
 
         [Test]
