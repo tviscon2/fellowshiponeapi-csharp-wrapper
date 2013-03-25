@@ -19,7 +19,7 @@ namespace FellowshipOne.API.Giving.Model
             ReferenceImage = new ParentObject();
             CreatedByPerson = new ParentObject();
             LastUpdatedByPerson = new ParentObject();
-            RDCBatchItemDetails = new List<RDCBatchItemDetail>();
+            //RDCBatchItemDetails = new List<RDCBatchItemDetail>();
             IsSharedAccount = false;
             Thank = false;
         }
@@ -86,37 +86,6 @@ namespace FellowshipOne.API.Giving.Model
         string _transactionNumber = string.Empty;
         [XmlElement("transactionNumber")]
         public string TransactionNumber { get { return _transactionNumber; } set { _transactionNumber = value; } }
-        
-        [XmlElement("returnDate")]
-        public string ReturnDate { get; set; }
-
-        [XmlElement("isSharedAccount")]
-        public bool? IsSharedAccount { get; set; }
-
-        [XmlElement("createdDate")]
-        public DateTime? CreatedDate { get; set; }
-
-        [XmlElement("createdByPerson")]
-        public ParentObject CreatedByPerson { get; set; }
-
-        [XmlElement("lastUpdatedDate")]
-        public DateTime? LastUpdatedDate { get; set; }
-
-        [XmlElement("lastUpdatedByPerson")]
-        public ParentObject LastUpdatedByPerson { get; set; }
-
-        [XmlElement("thank")]
-        public bool? Thank { get; set; }
-
-        [XmlElement("rdcBatchItemDetails")]
-        public List<RDCBatchItemDetail> RDCBatchItemDetails { get; set; }
-
-        private ContributionType _contributionType = new ContributionType();
-        [XmlElement("contributionType")]
-        public ContributionType ContributionType {
-            get { return _contributionType; }
-            set { _contributionType = value; }
-        }
 
         [XmlElement("referenceImage")]
         public ParentObject ReferenceImage { get; set; }
@@ -139,11 +108,42 @@ namespace FellowshipOne.API.Giving.Model
             }
         }
 
-        private string _referenceImageID = string.Empty;
-        [XmlAttribute("referenceImageID")]
-        public string ReferenceImageIDString {
-            get { return _referenceImageID; }
-            set { _referenceImageID = value; }
+        //private string _referenceImageID = string.Empty;
+        //[XmlAttribute("referenceImageID")]
+        //public string ReferenceImageIDString {
+        //    get { return _referenceImageID; }
+        //    set { _referenceImageID = value; }
+        //}
+
+        [XmlElement("returnDate")]
+        public string ReturnDate { get; set; }
+
+        [XmlElement("isSharedAccount")]
+        public bool? IsSharedAccount { get; set; }
+
+        [XmlElement("createdDate")]
+        public DateTime? CreatedDate { get; set; }
+
+        [XmlElement("createdByPerson")]
+        public ParentObject CreatedByPerson { get; set; }
+
+        [XmlElement("lastUpdatedDate")]
+        public DateTime? LastUpdatedDate { get; set; }
+
+        [XmlElement("lastUpdatedByPerson")]
+        public ParentObject LastUpdatedByPerson { get; set; }
+
+        [XmlElement("thank")]
+        public bool? Thank { get; set; }
+
+        [XmlArray("rdcBatchItemDetails", IsNullable = true)]
+        public List<RDCBatchItemDetail> RDCBatchItemDetails { get; set; }
+
+        private ParentNamedObject _contributionType = new ParentNamedObject();
+        [XmlElement("contributionType")]
+        public ParentNamedObject ContributionType {
+            get { return _contributionType; }
+            set { _contributionType = value; }
         }
 
         [XmlIgnore]
