@@ -20,6 +20,7 @@ namespace FellowshipOne.API.Giving.Model
             CreatedByPerson = new ParentObject();
             LastUpdatedByPerson = new ParentObject();
             //RDCBatchItemDetails = new List<RDCBatchItemDetail>();
+            ReturnDate = string.Empty;
             IsSharedAccount = false;
             Thank = false;
         }
