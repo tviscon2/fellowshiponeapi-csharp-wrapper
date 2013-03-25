@@ -39,7 +39,8 @@ namespace FellowshipOne.API.Tests.Giving {
                 BatchTypeID = "4"
             };
 
-            var batches = _client.GivingRealm.Batches.Search<List<API.Giving.Model.Batch>>(batchQO);
+            var batches = _client.GivingRealm.Batches.Search<API.Giving.Model.BatchSearchResults>(batchQO);
+            batches.PageNumber.ShouldBe(1);
         }
 
         [Test]
@@ -55,7 +56,7 @@ namespace FellowshipOne.API.Tests.Giving {
                 BatchTypeID = "4"
             };
 
-            var batches = _client.GivingRealm.Batches.Search<List<API.Giving.Model.Batch>>(batchQO);
+            var batches = _client.GivingRealm.Batches.Search<API.Giving.Model.BatchSearchResults>(batchQO);
 
             var rdcBatchItems = _client.GivingRealm.RDCBatchItems.GetListByBatchId(batches[0].ID.GetValueOrDefault());
             rdcBatchItems.Count.ShouldBeGreaterThan(0);

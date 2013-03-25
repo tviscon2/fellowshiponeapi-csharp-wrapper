@@ -59,6 +59,7 @@
     <Compile Include="Giving\Enum\BatchTypes.cs" />
     <Compile Include="Giving\Enum\PaymentTypes.cs" />
     <Compile Include="Giving\Model\Batch.cs" />
+    <Compile Include="Giving\Model\BatchSearchResults.cs" />
     <Compile Include="Giving\Model\ContributionType.cs" />
     <Compile Include="Giving\Model\RDCBatchItemDetail.cs" />
     <Compile Include="Giving\Model\RDCBatch.cs" />
