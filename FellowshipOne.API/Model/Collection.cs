@@ -10,7 +10,7 @@ namespace FellowshipOne.API.Model {
         public string RawResponse { get; set; }
 
         [XmlAttribute("count")]
-        public int ResultCount { get; set; }
+        public int Count { get; set; }
 
         [XmlAttribute("pageNumber")]
         public int PageNumber { get; set; }
