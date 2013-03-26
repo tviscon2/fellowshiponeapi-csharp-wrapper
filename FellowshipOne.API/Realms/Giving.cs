@@ -46,6 +46,16 @@ namespace FellowshipOne.API.Realms {
                 return _rDCBatchItems;
             }
         }
+
+        private FellowshipOne.API.Giving.Sets.ReferenceImages _referenceImages;
+        public FellowshipOne.API.Giving.Sets.ReferenceImages ReferenceImages {
+            get {
+                if (_referenceImages == null) {
+                    _referenceImages = new FellowshipOne.API.Giving.Sets.ReferenceImages(_ticket, _baseUrl);
+                }
+                return _referenceImages;
+            }
+        }
         #endregion Properties
 
         #region Constructor

@@ -31,23 +31,8 @@ namespace FellowshipOne.API.Giving.Sets {
             return result;
         }
 
-        //public override List<Model.RDCBatchItem> List(string parentID) {
- 	         
-        //}
-
-
-
         public List<RDCBatchItem> GetListByBatchId(int batchID) {
-            if (string.IsNullOrWhiteSpace(SearchUrl)) {
-                throw new NotImplementedException("The property SearchUrl has no value on the ApiSet.");
-            }
-
-            var request = new RestRequest(Method.GET) {
-                Resource = string.Format(GetChildListUrl, batchID)
-            };
-
-            var list = ExecuteCustomRequest<List<RDCBatchItem>>(request);
-            return list.Data;
+            return base.List(batchID.ToString());
         }
     }
 }

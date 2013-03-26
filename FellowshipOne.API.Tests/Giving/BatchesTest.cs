@@ -69,5 +69,11 @@ namespace FellowshipOne.API.Tests.Giving {
             var rdcBatchItem = _client.GivingRealm.RDCBatchItems.Get("2");
             rdcBatchItem.ReferenceNumber = "T:0C38BWZ7w";
         }
+
+        [Test]
+        public void GetReferenceImageByID() {
+            var bytes = _client.GivingRealm.ReferenceImages.GetBytes(37869261);
+            bytes.Length.ShouldBeGreaterThan(0);
+        }
     }
 }
