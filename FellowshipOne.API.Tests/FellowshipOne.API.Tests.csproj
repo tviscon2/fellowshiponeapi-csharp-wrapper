@@ -43,13 +43,13 @@
     <Reference Include="MbUnit">
       <HintPath>..\packages\mbunit.3.3.454.0\lib\net40\MbUnit.dll</HintPath>
     </Reference>
-    <Reference Include="Restify, Version=1.0.0.13, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Restify, Version=1.0.0.14, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Restify.1.0.13\lib\net40\Restify.dll</HintPath>
+      <HintPath>..\packages\Restify.1.0.14\lib\net40\Restify.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=104.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Restify.1.0.13\lib\net40\RestSharp.dll</HintPath>
+      <HintPath>..\packages\Restify.1.0.14\lib\net40\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="Shouldly">
       <HintPath>..\..\shared\Assemblies\packages\Shouldly.1.1.1.1\lib\35\Shouldly.dll</HintPath>

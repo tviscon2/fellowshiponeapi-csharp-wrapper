@@ -33,13 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Restify, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Restify, Version=1.0.0.14, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Restify.1.0.12\lib\net40\Restify.dll</HintPath>
+      <HintPath>..\packages\Restify.1.0.14\lib\net40\Restify.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp, Version=104.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Restify.1.0.12\lib\net40\RestSharp.dll</HintPath>
+      <HintPath>..\packages\Restify.1.0.14\lib\net40\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
