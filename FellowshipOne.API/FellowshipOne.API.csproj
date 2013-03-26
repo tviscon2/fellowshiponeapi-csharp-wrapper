@@ -68,6 +68,7 @@
     <Compile Include="Giving\Sets\Batches.cs" />
     <Compile Include="Giving\Sets\RDCBatches.cs" />
     <Compile Include="Giving\Sets\RDCBatchItems.cs" />
+    <Compile Include="Giving\Sets\ReferenceImages.cs" />
     <Compile Include="IBuilder.cs" />
     <Compile Include="ICollectionBuilder.cs" />
     <Compile Include="Model\ApiModel.cs" />
