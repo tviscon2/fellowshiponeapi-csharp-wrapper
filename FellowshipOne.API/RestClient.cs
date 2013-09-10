@@ -55,6 +55,17 @@ namespace FellowshipOne.API {
             return BuildTicket(ticket, username, password, client, authUrl);
         }
 
+        public static F1OAuthTicket GetRequestToken(F1OAuthTicket ticket, bool isStaging = false, bool useDemo = false) {
+            Client client = new Client(ticket);
+            var requestTokenUrl = isStaging ? string.Format("https://{0}.staging.fellowshiponeapi.com/", ticket.ChurchCode) : string.Format("https://{0}.fellowshiponeapi.com/", ticket.ChurchCode);
+            requestTokenUrl += "v1/RequestToken";
+
+            var oauthTicket = Client.GetRequestToken(ticket, "myapp.com", requestTokenUrl);
+            ticket.AccessToken = oauthTicket.AccessToken;
+            ticket.AccessTokenSecret = oauthTicket.AccessTokenSecret;
+            return ticket;
+        }
+
         public static F1OAuthTicket Authorize(F1OAuthTicket ticket, string username, string password, LoginType loginType, string baseUrl, bool isSecure = false, bool isStaging = false, bool useDemo = false)
         {
             var client = new Client(ticket);
@@ -62,9 +73,8 @@ namespace FellowshipOne.API {
             return BuildTicket(ticket, username, password, client, authUrl);
         }
 
-        private static F1OAuthTicket BuildTicket(F1OAuthTicket ticket, string username, string password, Client client,
-                                                 string authUrl) {
-                                                     IRestResponse response = client.AuthorizeFirstParty(ticket, username, password, authUrl);
+        private static F1OAuthTicket BuildTicket(F1OAuthTicket ticket, string username, string password, Client client, string authUrl) {
+            IRestResponse response = client.AuthorizeFirstParty(ticket, username, password, authUrl);
 
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new Exception(response.StatusDescription);
