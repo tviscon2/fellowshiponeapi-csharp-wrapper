@@ -48,6 +48,14 @@ namespace FellowshipOne.API {
         #endregion Constructor
 
         #region Methods
+        public static F1OAuthTicket GetAccessToken(F1OAuthTicket ticket, bool isStaging = false, bool useDemo = false) {
+            Client client = new Client(ticket);
+            //var authUrl = isStaging ? string.Format("https://{0}.staging.fellowshiponeapi.com/", ticket.ChurchCode) : string.Format("https://{0}.fellowshiponeapi.com/", ticket.ChurchCode);
+            var authUrl = string.Format("http://{0}.fellowshiponeapi.local/", ticket.ChurchCode);
+            authUrl += "v1/Tokens/AccessToken";
+            return BuildTicket(ticket, authUrl);
+        }
+
         public static F1OAuthTicket Authorize(F1OAuthTicket ticket, string username, string password, LoginType loginType, bool isStaging = false, bool useDemo = false) {
             Client client = new Client(ticket);
             var authUrl = isStaging ? string.Format("https://{0}.staging.fellowshiponeapi.com/", ticket.ChurchCode) : string.Format("https://{0}.fellowshiponeapi.com/", ticket.ChurchCode);
@@ -57,8 +65,10 @@ namespace FellowshipOne.API {
 
         public static F1OAuthTicket GetRequestToken(F1OAuthTicket ticket, bool isStaging = false, bool useDemo = false) {
             Client client = new Client(ticket);
-            var requestTokenUrl = isStaging ? string.Format("https://{0}.staging.fellowshiponeapi.com/", ticket.ChurchCode) : string.Format("https://{0}.fellowshiponeapi.com/", ticket.ChurchCode);
+            //var requestTokenUrl = isStaging ? string.Format("https://{0}.staging.fellowshiponeapi.com/", ticket.ChurchCode) : string.Format("https://{0}.fellowshiponeapi.com/", ticket.ChurchCode);
+            var requestTokenUrl = string.Format("http://{0}.fellowshiponeapi.local/", ticket.ChurchCode);
             requestTokenUrl += "v1/RequestToken";
+
 
             var oauthTicket = Client.GetRequestToken(ticket, "myapp.com", requestTokenUrl);
             ticket.AccessToken = oauthTicket.AccessToken;
@@ -75,6 +85,22 @@ namespace FellowshipOne.API {
 
         private static F1OAuthTicket BuildTicket(F1OAuthTicket ticket, string username, string password, Client client, string authUrl) {
             IRestResponse response = client.AuthorizeFirstParty(ticket, username, password, authUrl);
+
+            if (response.StatusCode != HttpStatusCode.OK)
+                throw new Exception(response.StatusDescription);
+            else {
+                var qs = HttpUtility.ParseQueryString(response.Content);
+                ticket.AccessToken = qs["oauth_token"];
+                ticket.AccessTokenSecret = qs["oauth_token_secret"];
+                if (response.Headers.SingleOrDefault(x => x.Name == "Content-Location") != null) {
+                    ticket.PersonURL = response.Headers.SingleOrDefault(x => x.Name == "Content-Location").Value.ToString();
+                }
+            }
+            return ticket;
+        }
+
+        private static F1OAuthTicket BuildTicket(F1OAuthTicket ticket, string authUrl) {
+            IRestResponse response = Client.GetAccessToken(ticket, authUrl);
 
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new Exception(response.StatusDescription);

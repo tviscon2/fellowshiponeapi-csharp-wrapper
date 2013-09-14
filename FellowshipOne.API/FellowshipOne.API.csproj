@@ -33,10 +33,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Restify">
+    <Reference Include="Restify, Version=1.0.0.14, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\contact-card-automation\AutoContact\packages\Restify.1.0.14\lib\net40\Restify.dll</HintPath>
     </Reference>
-    <Reference Include="RestSharp">
+    <Reference Include="RestSharp, Version=104.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\contact-card-automation\AutoContact\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
