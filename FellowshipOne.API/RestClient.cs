@@ -50,8 +50,8 @@ namespace FellowshipOne.API {
         #region Methods
         public static F1OAuthTicket GetAccessToken(F1OAuthTicket ticket, bool isStaging = false, bool useDemo = false) {
             Client client = new Client(ticket);
-            //var authUrl = isStaging ? string.Format("https://{0}.staging.fellowshiponeapi.com/", ticket.ChurchCode) : string.Format("https://{0}.fellowshiponeapi.com/", ticket.ChurchCode);
-            var authUrl = string.Format("http://{0}.fellowshiponeapi.local/", ticket.ChurchCode);
+            var authUrl = isStaging ? string.Format("https://{0}.staging.fellowshiponeapi.com/", ticket.ChurchCode) : string.Format("https://{0}.fellowshiponeapi.com/", ticket.ChurchCode);
+            //var authUrl = string.Format("http://{0}.fellowshiponeapi.local/", ticket.ChurchCode);
             authUrl += "v1/Tokens/AccessToken";
             return BuildTicket(ticket, authUrl);
         }
@@ -65,8 +65,8 @@ namespace FellowshipOne.API {
 
         public static F1OAuthTicket GetRequestToken(F1OAuthTicket ticket, bool isStaging = false, bool useDemo = false) {
             Client client = new Client(ticket);
-            //var requestTokenUrl = isStaging ? string.Format("https://{0}.staging.fellowshiponeapi.com/", ticket.ChurchCode) : string.Format("https://{0}.fellowshiponeapi.com/", ticket.ChurchCode);
-            var requestTokenUrl = string.Format("http://{0}.fellowshiponeapi.local/", ticket.ChurchCode);
+            var requestTokenUrl = isStaging ? string.Format("https://{0}.staging.fellowshiponeapi.com/", ticket.ChurchCode) : string.Format("https://{0}.fellowshiponeapi.com/", ticket.ChurchCode);
+            //var requestTokenUrl = string.Format("http://{0}.fellowshiponeapi.local/", ticket.ChurchCode);
             requestTokenUrl += "v1/RequestToken";
 
 
