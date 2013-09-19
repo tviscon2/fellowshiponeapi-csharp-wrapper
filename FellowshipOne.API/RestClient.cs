@@ -48,7 +48,7 @@ namespace FellowshipOne.API {
         #endregion Constructor
 
         #region Methods
-        public static F1OAuthTicket GetAccessToken(F1OAuthTicket ticket, bool isStaging = false, bool useDemo = false) {
+        public static F1OAuthTicket ExchangeRequestToken(F1OAuthTicket ticket, bool isStaging = false, bool useDemo = false) {
             Client client = new Client(ticket);
             var authUrl = isStaging ? string.Format("https://{0}.staging.fellowshiponeapi.com/", ticket.ChurchCode) : string.Format("https://{0}.fellowshiponeapi.com/", ticket.ChurchCode);
             //var authUrl = string.Format("http://{0}.fellowshiponeapi.local/", ticket.ChurchCode);
@@ -100,7 +100,7 @@ namespace FellowshipOne.API {
         }
 
         private static F1OAuthTicket BuildTicket(F1OAuthTicket ticket, string authUrl) {
-            IRestResponse response = Client.GetAccessToken(ticket, authUrl);
+            IRestResponse response = Client.ExchangeRequestToken(ticket, authUrl);
 
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new Exception(response.StatusDescription);
