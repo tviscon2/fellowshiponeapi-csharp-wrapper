@@ -7,6 +7,7 @@ using System.Xml;
 using System.Xml.Serialization;
 
 namespace FellowshipOne.API.People.Model {
+    [Serializable]
     public class WeblinkUser {
         private string _userID = string.Empty;
         [XmlElement("userID")]

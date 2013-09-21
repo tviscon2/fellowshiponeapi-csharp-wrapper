@@ -7,6 +7,7 @@ using System.Xml;
 using System.Xml.Serialization;
 
 namespace FellowshipOne.API.Model {
+    [Serializable]
     public class ApiModel {
         [XmlIgnore]
         public int? ID {

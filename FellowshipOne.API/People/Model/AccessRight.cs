@@ -4,6 +4,7 @@ using System.Xml;
 using System.Xml.Serialization;
 
 namespace FellowshipOne.API.People.Model {
+    [Serializable]
     public partial class AccessRight : ApiModel {
         [XmlElement("name")]
         public string Name { get; set; }

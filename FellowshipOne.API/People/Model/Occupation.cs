@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using FellowshipOne.API.Model;
 
 namespace FellowshipOne.API.People.Model {
+    [Serializable]
     public class Occupation : ParentNamedObject {
         private string _description = string.Empty;
         [XmlElement("description")]

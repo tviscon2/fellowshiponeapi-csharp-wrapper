@@ -6,6 +6,7 @@ using System.Text;
 using System.Xml.Serialization;
 
 namespace FellowshipOne.API.People.Model {
+    [Serializable]
     public class TimeZone : ParentNamedObject {
         private string _bias = string.Empty;
         [XmlElement("bias")]

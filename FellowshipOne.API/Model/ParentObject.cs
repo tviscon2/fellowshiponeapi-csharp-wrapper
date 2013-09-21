@@ -6,12 +6,14 @@ using System.Xml;
 using System.Xml.Serialization;
 
 namespace FellowshipOne.API.Model {
+    [Serializable]
     public class ParentObject : ApiModel {
         public static ParentObject Default {
             get { return new ParentObject(); }
         }
     }
 
+    [Serializable]
     public class ParentNamedObject : ApiModel {
         private string _name = string.Empty;
         [XmlElement("name")]
