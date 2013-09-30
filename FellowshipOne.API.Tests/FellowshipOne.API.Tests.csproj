@@ -37,22 +37,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gallio">
-      <HintPath>..\packages\mbunit.3.3.454.0\lib\net40\Gallio.dll</HintPath>
+    <Reference Include="Restify">
+      <HintPath>..\packages\Restify.1.0.15\lib\Restify.dll</HintPath>
     </Reference>
-    <Reference Include="MbUnit">
-      <HintPath>..\packages\mbunit.3.3.454.0\lib\net40\MbUnit.dll</HintPath>
-    </Reference>
-    <Reference Include="Restify, Version=1.0.0.14, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Restify.1.0.14\lib\net40\Restify.dll</HintPath>
-    </Reference>
-    <Reference Include="RestSharp, Version=104.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Restify.1.0.14\lib\net40\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.2.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="Shouldly">
-      <HintPath>..\..\shared\Assemblies\packages\Shouldly.1.1.1.1\lib\35\Shouldly.dll</HintPath>
+      <HintPath>..\packages\Shouldly.1.1.1.1\lib\35\Shouldly.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
