@@ -42,6 +42,9 @@ namespace FellowshipOne.API.Giving.Model {
         [XmlElement("itemCount")]
         public int ItemCount { get; set; }
 
+        [XmlAttribute("defaultContributionTypeID")]
+        public int DefaultContributionTypeID { get; set; }
+
         [XmlElement("batchAmount")]
         public decimal BatchAmount { get; set; }
 
