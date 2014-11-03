@@ -32,7 +32,7 @@ namespace FellowshipOne.API.Tests.Giving {
             _client = new RestClient(oAuth, ConfigurationManager.AppSettings["API.Url"], false, false);
         }
 
-        [Test]
+        [TestMethod]
         public void BatchSearchForScannedContributionBatchesInProgress() {
             var batchQO = new API.Giving.QueryObject.BatchQO() {
                 BatchStatusID = "6",
@@ -43,13 +43,13 @@ namespace FellowshipOne.API.Tests.Giving {
             batches.PageNumber.ShouldBe(1);
         }
 
-        [Test]
+        [TestMethod]
         public void GetRdcBatchByBatchID() {
             var rdcBatch = _client.GivingRealm.RDCBatches.Get("1518983");
             rdcBatch.Name.ShouldBe("Test RDC Batch May 16 2012 10:53AM");
         }
 
-        [Test]
+        [TestMethod]
         public void GetRdcBatchItemsByBatchID() {
             var batchQO = new API.Giving.QueryObject.BatchQO() {
                 BatchStatusID = "6",
@@ -62,7 +62,7 @@ namespace FellowshipOne.API.Tests.Giving {
             rdcBatchItems.Count.ShouldBeGreaterThan(0);
         }
 
-        [Test]
+        [TestMethod]
         public void GetRdcBatchItemByID() {
             var person = _client.PeopleRealm.People.Get("33175804");
 
@@ -70,7 +70,7 @@ namespace FellowshipOne.API.Tests.Giving {
             rdcBatchItem.ReferenceNumber = "T:0C38BWZ7w";
         }
 
-        [Test]
+        [TestMethod]
         public void GetReferenceImageByID() {
             var bytes = _client.GivingRealm.ReferenceImages.GetBytes(37869261);
             bytes.Length.ShouldBeGreaterThan(0);
