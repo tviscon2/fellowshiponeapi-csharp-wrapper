@@ -10,7 +10,7 @@ using FellowshipOne.API.Model;
 namespace FellowshipOne.API.People.Model {
     [Serializable]
     [XmlRoot("logit")]
-    public class Logit : ParentNamedObject {
+    public class Logit {
         private FellowshipOne.API.Model.ParentObject _person = new ParentObject();
         [XmlElement("person")]
         public FellowshipOne.API.Model.ParentObject Person {
@@ -114,6 +114,13 @@ namespace FellowshipOne.API.People.Model {
         public string Column9 {
             get { return _column9; }
             set { _column9 = value; }
+        }
+
+        private string _detail = string.Empty;
+        [XmlElement("detail")]
+        public string Detail {
+            get { return _detail; }
+            set { _detail = value; }
         }
     }
 }
