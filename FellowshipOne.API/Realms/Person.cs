@@ -51,12 +51,9 @@ namespace FellowshipOne.API.Realms {
         }
 
         private FellowshipOne.API.People.Sets.AccessRights _accessRights;
-        public FellowshipOne.API.People.Sets.AccessRights AccessRights
-        {
-            get
-            {
-                if (_accessRights == null)
-                {
+        public FellowshipOne.API.People.Sets.AccessRights AccessRights {
+            get {
+                if (_accessRights == null) {
                     _accessRights = new API.People.Sets.AccessRights(_ticket, _baseUrl);
                 }
                 return _accessRights;
@@ -100,6 +97,16 @@ namespace FellowshipOne.API.Realms {
                     _churchConfigs = new API.People.Sets.ChurchConfigs(_ticket, _baseUrl);
                 }
                 return _churchConfigs;
+            }
+        }
+
+        private FellowshipOne.API.People.Sets.Logit _logit;
+        public FellowshipOne.API.People.Sets.Logit Logs {
+            get {
+                if (_logit == null) {
+                    _logit = new API.People.Sets.Logit(_ticket, _baseUrl);
+                }
+                return _logit;
             }
         }
 

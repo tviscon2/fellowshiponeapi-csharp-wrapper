@@ -96,6 +96,7 @@
     </Compile>
     <Compile Include="People\Model\Communication.cs" />
     <Compile Include="People\Model\Household.cs" />
+    <Compile Include="People\Model\Logit.cs" />
     <Compile Include="People\Model\Occupation.cs" />
     <Compile Include="People\Model\Person.cs" />
     <Compile Include="People\Model\Status.cs" />
@@ -112,6 +113,7 @@
     </Compile>
     <Compile Include="People\Sets\Communications.cs" />
     <Compile Include="People\Sets\Households.cs" />
+    <Compile Include="People\Sets\Logit.cs" />
     <Compile Include="People\Sets\People.cs" />
     <Compile Include="People\Sets\Statuses.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
